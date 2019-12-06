@@ -76,7 +76,7 @@ h2 {
     font-weight: 400;
     margin-top: 2.1rem;
     margin-bottom: 1.4rem;
-    font-size: 2.2rem;
+    font-size: 2.9rem;
     line-height: 1; 
 }
 
@@ -661,7 +661,8 @@ label.margin-toggle:not(.sidenote-number) {
     font-size: 1.4em;
     margin: 0; }
   #book-content .section .section h2.title {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    /*  Change the mid section header font size here*/
     margin: 0; }
   #book-content .section .section .section h2.title {
     font-size: 1.05em; }
