@@ -1,82 +1,487 @@
+
+
+
+
+
+@charset "UTF-8";
+
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book-roman-old-style";
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Tufte CSS styles */
+html {
+    font-size: 17px; 
+}
+
 body {
-  font-family: 'Calibri2', Calibri, Arial, 'Trebuchet MS', sans-serif;
+    /*width: 40%;*/
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0%;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    /*background-color: #fffff8;*/
+    color: #111;
+    max-width: 1400px;
+    counter-reset: sidenote-counter;
+    /*text-align: justify; */
 }
 
-a[href], a:visited {
-  color: #000;
-  text-decoration: underline;
-}
-a:hover {
-  text-decoration: none;
-}
-a img {
-  border: 0;
+h1 {
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1; 
 }
 
-#edition {
-  margin-top: -1.5em;
-  margin-bottom: 1em;
+h2 {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.2rem;
+    line-height: 1; 
 }
 
-#section-container {
-  padding: 10px 25px 10px 45px;
+h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    line-height: 1; 
 }
 
-#preface {
-  max-width: 960px;
-  margin: 10px auto;
-  border: 2px solid #0d9b49;
-  padding: 10px;
-  border-radius: 10px;
+hr {
+    display: block;
+    height: 1px;
+    width: 55%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0; 
 }
-#preface p {
-  margin-top: 0;
+
+p.subtitle {
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    display: block;
+    line-height: 1; 
 }
-#preface-details {
-  margin-left: 2em;
+
+.numeral {
+    font-family: et-book-roman-old-style; 
 }
-#preface-block-introduction {
-  text-align: center;
-  font-size: 130%;
-  font-weight: bold;
+
+.danger {
+    color: red; 
 }
-#preface-block-container {
-  text-align: center;
+
+article {
+    padding: 5rem 0rem; 
 }
-.preface-block {
-  text-align: center;
-  display: inline-block;
-  vertical-align: top;
-  width: 49%;
-  min-width: 210px;
-  margin: auto;
+
+section {
+    padding-top: 1rem;
+    padding-bottom: 1rem; 
 }
-.preface-block-contents {
-  padding: 5px;
+
+p,
+ol,
+ul {
+    font-size: 1.4rem;
+    line-height: 2rem; 
 }
-.preface-block-contents .block-title {
-  font-size: 130%;
-  font-weight: bold;
-  margin-bottom: 0.3em;
+
+p {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline; 
 }
-.preface-block-contents .block-logo {
-  margin: 10px 0;
+
+/* Chapter Epigraphs */
+div.epigraph {
+    margin: 5em 0; 
 }
-.preface-block-contents .block-logo img {
-  width: 200px;
-  height: 50px;
+
+div.epigraph > blockquote {
+    margin-top: 3em;
+    margin-bottom: 3em; 
 }
-.preface-block-contents .block-description {
-  font-size: 90%;
-  max-width: 320px;
-  margin: auto;
+
+div.epigraph > blockquote,
+div.epigraph > blockquote > p {
+    font-style: italic; 
 }
+
+div.epigraph > blockquote > footer {
+    font-style: normal; 
+}
+
+div.epigraph > blockquote > footer > cite {
+    font-style: italic; 
+}
+/* end chapter epigraphs styles */
+
+blockquote {
+    font-size: 1.4rem; 
+}
+
+blockquote p {
+    width: 55%;
+    margin-right: 40px; 
+}
+
+blockquote footer {
+    width: 55%;
+    font-size: 1.1rem;
+    text-align: right; 
+}
+
+section > p,
+section > footer,
+section > table {
+    width: 55%; 
+}
+
+/* 50 + 5 == 55, to be the same width as paragraph */
+section > ol,
+section > ul {
+    width: 50%;
+    -webkit-padding-start: 5%; 
+}
+
+li:not(:first-child) {
+    margin-top: 0.25rem; 
+}
+
+figure {
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    max-width: 55%;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0 0 3em 0; 
+}
+
+figcaption {
+    float: right;
+    clear: right;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    vertical-align: baseline;
+    position: relative;
+    max-width: 40%; 
+}
+
+figure.fullwidth figcaption {
+    margin-right: 24%; 
+}
+
+/* Links: replicate underline that clears descenders */
+a:link,
+a:visited {
+    color: inherit; 
+}
+
+.no-tufte-underline:link {
+    background: unset;
+    text-shadow: unset;
+}
+
+a:link, .tufte-underline, .hover-tufte-underline:hover {
+    text-decoration: none;
+    background: -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(#fffff8, #fffff8), -webkit-linear-gradient(currentColor, currentColor);
+    background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(currentColor, currentColor);
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
+    background-position: 0% 93%, 100% 93%, 0% 93%; 
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    a:link, .tufte-underline, .hover-tufte-underline:hover {
+        background-position-y: 87%, 87%, 87%;
+    }
+}
+
+a:link::selection,
+a:link::-moz-selection {
+    text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
+    background: #b4d5fe;
+}
+
+/* Sidenotes, margin notes, figures, captions */
+img {
+    max-width: 100%; 
+}
+
+.sidenote,
+.marginnote {
+    float: right;
+    clear: right;
+    margin-right: -60%;
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: .8rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative; 
+}
+
+.sidenote-number {
+    counter-increment: sidenote-counter; 
+}
+
+.sidenote-number:after,
+.sidenote:before {
+    font-family: et-book-roman-old-style;
+    position: relative;
+    vertical-align: baseline; 
+}
+
+.sidenote-number:after {
+    content: counter(sidenote-counter);
+    font-size: .8rem;
+    top: -0.5rem;
+    left: 0.1rem; 
+}
+
+.sidenote:before {
+    content: counter(sidenote-counter) " ";
+    font-size: .8rem;
+    /*top: -0.5rem; */
+}
+
+blockquote .sidenote,
+blockquote .marginnote {
+    margin-right: -82%;
+    min-width: 59%;
+    text-align: left; 
+}
+
+div.fullwidth,
+table.fullwidth {
+    width: 100%; 
+}
+
+div.table-wrapper {
+    overflow-x: auto;
+    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif; 
+}
+
+.sans {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: .03em; 
+}
+
+code, pre > code {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
+}
+
+.sans > code {
+    font-size: 1.2rem; 
+}
+
+h1 > code,
+h2 > code,
+h3 > code {
+    font-size: 0.80em; 
+}
+
+.marginnote > code,
+.sidenote > code {
+    font-size: 1rem; 
+}
+
+pre > code {
+    font-size: 0.9rem;
+    width: 52.5%;
+    margin-left: 2.5%;
+    overflow-x: auto;
+    display: block;
+}
+
+pre.fullwidth > code {
+    width: 90%; 
+}
+
+.fullwidth {
+    max-width: 90%;
+    clear:both; 
+}
+
+span.newthought {
+    font-variant: small-caps;
+    font-size: 1.2em; 
+}
+
+input.margin-toggle {
+    display: none; 
+}
+
+label.sidenote-number {
+    display: inline; 
+}
+
+label.margin-toggle:not(.sidenote-number) {
+    display: none; 
+}
+
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0; 
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+@media (max-width: 760px) {
+    body {
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%; 
+    }
+    
+    hr,
+    section > p,
+    section > footer,
+    section > table {
+        width: 100%; 
+    }
+    
+    pre > code {
+        width: 97%; 
+    }
+
+    section > ol {
+        width: 90%; 
+    }
+
+    section > ul {
+        width: 90%; 
+    }
+
+    figure {
+        max-width: 90%; 
+    }
+    
+    figcaption,
+    figure.fullwidth figcaption {
+        margin-right: 0%;
+        max-width: none; 
+    }
+    
+    blockquote {
+        margin-left: 1.5em;
+        margin-right: 0em; 
+    }
+
+    blockquote p,
+    blockquote footer {
+        width: 100%; 
+    }
+    
+    label.margin-toggle:not(.sidenote-number) {
+        display: inline; 
+    }
+
+    .sidenote,
+    .marginnote {
+        display: none; 
+    }
+    
+    .margin-toggle:checked + .sidenote,
+    .margin-toggle:checked + .marginnote {
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative; 
+    }
+
+    label {
+        cursor: pointer; 
+    }
+
+    div.table-wrapper,
+    table {
+        width: 85%; 
+    }
+    
+    img {
+        width: 100%;
+    } 
+}
+
+
 
 .navbar {
   max-width: 960px;
   margin: 0 auto;
   padding: 5px 0;
-  background: #fff;
+  background: #fffff8;
 }
 #navbar-top {
   -moz-box-shadow:    0px 5px 3px -3px #888;
@@ -110,76 +515,40 @@ a img {
   text-align: right;
 }
 
-#toc-header {
-  margin-bottom: 0 !important;
-}
-#toc-top-ul {
-  margin-top: 0 !important;
-}
-#toc-top-ul h3 {
-  margin: 0;
-}
+/*
+.key_takeaways {
+    background-color: #ffece6; }
+.key_takeaways > .title {
+      color: #fff;
+      background-color: #ff6933; }
 
-.replaced-iframe-container {
-  text-align: center;
-}
 
-.glossdef-tooltip {
-  background: #def;
-  border: 1px solid #000;
-  border-radius: 3px;
-  font-family: Georgia, serif;
-  font-size: 0.89em;
-  line-height: 1.3em;
-  padding: 5px 7px;
-  max-width: 300px;
-  -moz-box-shadow:    3px 3px 3px #888;
-  -webkit-box-shadow: 3px 3px 3px #888;
-  box-shadow:         3px 3px 3px #888;
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
-  zoom: 1;
-}
+.exercises {
+    background-color: #e3eff7; 
+    padding: 0px 50px 0px 10px;}
+.exercises > .title {
+      color: #fff;
+      background-color: #08629a;
+      /*padding: 0px 200px 0px 200px; */
+/*    }
 
-#book-content {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-width: 40em;
-  margin: auto;
-  /* Generic font for the book information */
-  /* Size ~> 25pt */
-  /* Size ~> 21pt */
-  /* General list stlying */
-  /* Footer Stuffs */
-  /* .keyterm { */
-  /*   background-color: #e8f3f7; */
-  /*   > .title { */
-  /*     background-color: #d7eaf1; */
-  /*   } */
-  /*   dl { */
-  /*     padding-right: 30px; */
-  /*     line-height: 1.5em; */
-  /*     dt { */
-  /*       font-size: 0.89em; */
-  /*       display: inline; */
-  /*       &:after { */
-  /*         content: ":"; */
-  /*       } */
-  /*     } */
-  /*     dd { */
-  /*       font-size: 0.89em; */
-  /*       display: inline; */
-  /*       &:after { */
-  /*         content: "\A";  /\* line-feed *\/ */
-  /*         white-space: pre-wrap; */
-  /*       } */
-  /*     } */
-  /*   }  */
-  /* } */
-  /* Figures */
-  /* Formatting videos */
-  /* footnote */ }
-  #book-content .block-container {
+
+ .learning_objectives {
+    background-color: #eae9dc; }
+ .learning_objectives > .title {
+      background-color: #d2d1c2; }
+
+.learning_objectives, .key_takeaways, .exercises, .exercises-math, .qandaset, .keyterm {
+    padding-bottom: 20px; }
+*/
+
+
+
+
+
+
+/*Book content*/
+#book-content .block-container {
     position: relative; }
   #book-content .link {
     word-wrap: break-word; }
@@ -231,9 +600,9 @@ a img {
   #book-content h3 {
     font-size: 1.3em; }
   #book-content p, #book-content ul, #book-content ol {
-    font-family: Georgia, serif;
-    font-size: 0.89em;
-    line-height: 1.83em;
+    /*font-family: Georgia, serif;*/
+    /*font-size: 0.89em;*/
+    line-height: 1.4em;
     padding-top: 6px;
     padding-bottom: 6px; }
     #book-content p p, #book-content p ul, #book-content p ol, #book-content ul p, #book-content ul ul, #book-content ul ol, #book-content ol p, #book-content ol ul, #book-content ol ol {
@@ -246,7 +615,7 @@ a img {
     font-size: 1em; }
   #book-content .catalog-button p, #book-content .catalog-button h1, #book-content .catalog-button h2, #book-content .catalog-button h3, #book-content .catalog-button h4, #book-content .catalog-button h5 {
     margin: 0;
-    font-family: 'Calibri2', Calibri, sans-serif;
+    /*font-family: 'Calibri2', Calibri, sans-serif;*/
     color: #fff !important; }
   #book-content ul, #book-content ol {
     padding-left: 25px; }
@@ -296,14 +665,14 @@ a img {
     margin: 0; }
   #book-content .section .section .section h2.title {
     font-size: 1.05em; }
-  #book-content .glossterm {
+  /*#book-content .glossterm {
     color: #111;
     font-weight: bold;
     border-bottom: 1px dashed #999; }
     #book-content .glossterm:hover {
       text-decoration: none; }
   #book-content .glossdef {
-    display: none; }
+    display: none; }*/
   #book-content #hrfn {
     clear: both; }
   #book-content .learning_objectives, #book-content .key_takeaways, #book-content .exercises, #book-content .exercises-math, #book-content .qandaset, #book-content .callout {
@@ -369,7 +738,7 @@ a img {
       padding: 10px 0px 7px 0px;
       margin-bottom: 10px; }
     #book-content .learning_objectives ol, #book-content .learning_objectives ul, #book-content .learning_objectives p, #book-content .key_takeaways ol, #book-content .key_takeaways ul, #book-content .key_takeaways p, #book-content .exercises ol, #book-content .exercises ul, #book-content .exercises p, #book-content .exercises-math ol, #book-content .exercises-math ul, #book-content .exercises-math p, #book-content .qandaset ol, #book-content .qandaset ul, #book-content .qandaset p, #book-content .keyterm ol, #book-content .keyterm ul, #book-content .keyterm p {
-      font-family: 'Calibri2', Calibri, Arial, 'Trebuchet MS', sans-serif;
+      /*font-family: 'Calibri2', Calibri, Arial, 'Trebuchet MS', sans-serif;*/
       margin: 10px 25px 0 20px; }
   #book-content .learning_objectives {
     background-color: #eae9dc; }
@@ -446,7 +815,8 @@ a img {
     vertical-align: super;
     line-height: 0; }
   #book-content .footnote ol, #book-content .footnote ul, #book-content .footnote p, #book-content .footnote sup {
-    font-family: 'Calibri2', Calibri, Arial, 'Trebuchet MS', sans-serif; }
+    /*font-family: 'Calibri2', Calibri, Arial, 'Trebuchet MS', sans-serif;*/
+     }
   #book-content ol[numeration='loweralpha'] li {
     list-style-type: lower-alpha; }
   #book-content ol[numeration='arabic'] li {
@@ -495,93 +865,5 @@ a img {
 #book-main-upper, #book-main {
   margin-right: 9px; }
 
-#book-main-upper {
-  width: 590px;
-  height: 9px;
-  float: right;
-  background-image: url("/images/bookhub/book-edge-upper.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  margin-top: 10px; }
 
-#book-main-right {
-  background-image: url("/images/bookhub/book-edge-right.png");
-  background-repeat: no-repeat;
-  background-position: top right;
-  position: absolute;
-  width: 9px;
-  height: 363px;
-  right: 0px;
-  margin-top: 19px; }
 
-#book-main {
-  position: relative;
-  float: right;
-  overflow: hidden;
-  min-width: 590px;
-  width: 594px;
-  padding: 10px 0px 0 0;
-  border-right: 1px #dfdfdf solid;
-  -moz-box-shadow: 2px 2px 2px #efefef;
-  -webkit-box-shadow: 2px 2px 2px #efefef;
-  box-shadow: 2px 2px 2px #efefef;
-  background-image: url("/images/bookhub/book-edge-inner.png");
-  background-repeat: no-repeat;
-  background-position: top right; }
-  #book-main #helpful-hints {
-    position: absolute;
-    width: 240px;
-    z-index: 200;
-    right: 100px;
-    top: 50px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    border: 1px solid #BBB;
-    -moz-box-shadow: 0 0 2px #999999;
-    -webkit-box-shadow: 0 0 2px #999999;
-    box-shadow: 0 0 2px #999999; }
-    #book-main #helpful-hints .paperclip {
-      position: absolute;
-      left: 16px;
-      top: -8px; }
-    #book-main #helpful-hints .close {
-      position: absolute;
-      right: -18px;
-      top: -15px; }
-    #book-main #helpful-hints #top-bar {
-      height: 10px;
-      background-color: #328ec7;
-      -moz-border-radius: 2px 2px 0 0;
-      -webkit-border-radius: 2px 2px 0 0;
-      border-radius: 2px 2px 0 0; }
-    #book-main #helpful-hints #helpful-content {
-      background-color: #fdfddb;
-      -moz-border-radius: 0 0 2px 2px;
-      -webkit-border-radius: 0 0 2px 2px;
-      border-radius: 0 0 2px 2px;
-      padding: 20px 10px 10px 10px; }
-      #book-main #helpful-hints #helpful-content ul {
-        padding-left: 15px;
-        padding-top: 5px; }
-        #book-main #helpful-hints #helpful-content ul li {
-          margin-top: 3px;
-          line-height: 1.2em; }
-          #book-main #helpful-hints #helpful-content ul li:first-child {
-            margin-top: 0; }
-          #book-main #helpful-hints #helpful-content ul li p {
-            color: #555; }
-
-.right {
-  float: right; }
-
-.left {
-  float: left; }
-
-.fwk-tooltip.fwk-modal.ui-tooltip.fwk-tooltip-welcome h3 {
-  color: #08629a; }
-.fwk-tooltip.fwk-modal.ui-tooltip.fwk-tooltip-welcome .ui-tooltip-content {
-  padding-bottom: 0 !important;
-  border: 0; }
-.fwk-tooltip.fwk-modal.ui-tooltip.fwk-tooltip-welcome .ui-tooltip-title {
-  border-bottom: 2px #ddd solid !important; }
